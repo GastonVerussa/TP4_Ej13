@@ -10,4 +10,23 @@
  */
 public class Test {
     
+    public static void main(String[] args){
+        
+        Confiteria confiteria = new Confiteria();
+        Cocinero cocinero = new Cocinero("1", confiteria);
+        Mozo mozo = new Mozo("1", confiteria);
+        int cantidadEmpleados = 6;
+        Empleado[] empleados = new Empleado[cantidadEmpleados];
+        
+        for(int i = 0; i < cantidadEmpleados; i++){
+            empleados[i] = new Empleado(String.valueOf(i), confiteria);
+        }
+        
+        cocinero.start();
+        mozo.start();
+        
+        for(int i = 0; i < cantidadEmpleados; i++){
+            empleados[i].start();
+        }
+    }
 }
